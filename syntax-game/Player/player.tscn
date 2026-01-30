@@ -145,3 +145,9 @@ hframes = 21
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1778070730]
 libraries/ = SubResource("AnimationLibrary_gwnis")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1278790566]
+offset = Vector2(0, -88.45)
+limit_left = -30
+limit_right = 800
+position_smoothing_enabled = true
