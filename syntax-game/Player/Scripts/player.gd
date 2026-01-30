@@ -4,9 +4,12 @@ var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
 var move_speed : float = 100.0
 var state : String = "idle"
+var can_move : = true
+
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var textbox = $"../window/CanvasLayer/Panel"
 
 
 func _ready():
@@ -26,6 +29,8 @@ func _process( delta ):
 
 
 func _physics_process( delta ):
+	if textbox.visible:
+		return
 	move_and_slide()
 
 
