@@ -12,13 +12,17 @@ var can_move : = true
 @onready var textbox = $"../window/CanvasLayer/Panel"
 
 
+
 func _ready():
 	pass
 
 
 func _process( delta ):
 	 
-	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
+	if textbox.visible:
+		animation_player.play("idle_side")
+	else:
+		direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	
 	velocity = direction * move_speed
 	
@@ -62,7 +66,10 @@ func SetState() -> bool:
 	return true
 
 func UpdateAnimation() -> void:
-	animation_player.play( state + "_" + AnimDirection() )
+	if textbox.visible:
+		animation_player.play("idle_side")
+	else:
+		animation_player.play( state + "_" + AnimDirection() )
 	pass
 
 func AnimDirection() -> String:

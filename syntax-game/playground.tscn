@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://4tltqnch4w1y" path="res://playground.gd" id="1_m8u5f"]
 [ext_resource type="PackedScene" uid="uid://b6l0x2dykp2o5" path="res://Player/player.tscn" id="1_rupst"]
-[ext_resource type="Texture2D" uid="uid://cmhlgm3sxecyo" path="res://bg_frontyard.png" id="2_wt17y"]
+[ext_resource type="Texture2D" uid="uid://b6gsm8sc6m82x" path="res://Player/Sprites/bg_frontyard_lineart.png" id="3_is3ju"]
 [ext_resource type="Script" uid="uid://dv2eyfarayru5" path="res://area_2d.gd" id="4_is3ju"]
+[ext_resource type="Script" uid="uid://cwnuo1v6j6hm6" path="res://door_stair.gd" id="5_o00ia"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_is3ju"]
 radius = 14.0
@@ -16,9 +17,9 @@ position = Vector2(45, 229)
 
 [node name="BgFrontyard" type="Sprite2D" parent="." unique_id=1441334918]
 z_index = -1
-position = Vector2(450, 123)
-scale = Vector2(0.13553427, 0.13553426)
-texture = ExtResource("2_wt17y")
+position = Vector2(390.00003, 125)
+scale = Vector2(0.12018649, 0.12018648)
+texture = ExtResource("3_is3ju")
 
 [node name="window" type="Sprite2D" parent="." unique_id=346500805]
 
@@ -26,7 +27,7 @@ texture = ExtResource("2_wt17y")
 script = ExtResource("4_is3ju")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="window/Area2D" unique_id=1294095781]
-position = Vector2(303, 41)
+position = Vector2(259, 54)
 shape = SubResource("CircleShape2D_is3ju")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="window" unique_id=486556258]
@@ -46,5 +47,13 @@ offset_right = 95.0
 offset_bottom = 33.0
 text = "A window."
 
+[node name="DoorStair" type="Area2D" parent="." unique_id=562631028]
+script = ExtResource("5_o00ia")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DoorStair" unique_id=2137750076]
+polygon = PackedVector2Array(147, 208, 139, 245, 208, 242, 198, 202, 195, 179, 79, 115, 76, 75, 41, 79, 48, 146, 78, 147)
+
 [connection signal="mouse_entered" from="window/Area2D" to="." method="change_cursor_hand"]
 [connection signal="mouse_exited" from="window/Area2D" to="." method="change_cursor_back"]
+[connection signal="mouse_entered" from="DoorStair" to="." method="change_cursor_hand"]
+[connection signal="mouse_exited" from="DoorStair" to="." method="change_cursor_back"]
