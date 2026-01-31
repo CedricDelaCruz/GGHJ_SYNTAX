@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cusmubwv6tjeq"
+path="res://.godot/imported/troll.dialogue-265edd5b0854e1994183b6fcfc841866.tres"
+
+[deps]
+
+source_file="res://troll.dialogue"
+dest_files=["res://.godot/imported/troll.dialogue-265edd5b0854e1994183b6fcfc841866.tres"]
+
+[params]
+
+defaults=true

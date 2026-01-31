@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://7x6m0ydtsx8f"]
+
+[ext_resource type="Script" uid="uid://brl5kqqsx4b6p" path="res://main_menu.gd" id="1_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://c3rt8lyemsnik" path="res://Player/Sprites/frontmaskon.png" id="2_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://d2yyo6d3qyh2c" path="res://Player/Sprites/bg_frontyard_roughcolor.png" id="3_fu7sn"]
+
+[node name="Main Menu" type="Node2D" unique_id=2002886257]
+script = ExtResource("1_7vrkn")
+
+[node name="Label" type="Label" parent="." unique_id=1679834861]
+offset_left = 489.0
+offset_top = 249.0
+offset_right = 757.0
+offset_bottom = 472.0
+theme_override_font_sizes/font_size = 80
+text = "Anting
+Anting"
+
+[node name="button_manager" type="Control" parent="." unique_id=334417711]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Start" type="Button" parent="button_manager" unique_id=1965109969]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 20.225
+anchor_top = 4.975
+anchor_right = 27.3
+anchor_bottom = 7.175
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 30
+text = "Start"
+metadata/_edit_use_anchors_ = true
+
+[node name="About" type="Button" parent="button_manager" unique_id=1919428573]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 20.225
+anchor_top = 7.975
+anchor_right = 27.3
+anchor_bottom = 10.2
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 30
+text = "About"
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="button_manager" unique_id=839066498]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 20.225
+anchor_top = 11.15
+anchor_right = 27.3
+anchor_bottom = 13.35
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 30
+text = "Quit
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Frontmaskon" type="Sprite2D" parent="." unique_id=1917224217]
+position = Vector2(277, 374)
+scale = Vector2(0.7058824, 0.7058824)
+texture = ExtResource("2_fu7sn")
+
+[node name="BgFrontyardRoughcolor" type="Sprite2D" parent="." unique_id=978154744]
+show_behind_parent = true
+position = Vector2(132, 880)
+texture = ExtResource("3_fu7sn")
+
+[connection signal="pressed" from="button_manager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="button_manager/About" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="button_manager/Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://5quqos6aaob3"]
+
+[ext_resource type="Script" uid="uid://c0sdupbutfb4w" path="res://about.gd" id="1_x5r8a"]
+[ext_resource type="Texture2D" uid="uid://d2yyo6d3qyh2c" path="res://Player/Sprites/bg_frontyard_roughcolor.png" id="3_sx25x"]
+[ext_resource type="Texture2D" uid="uid://de6qs5epnt6xg" path="res://About/finn.png" id="3_x5r8a"]
+[ext_resource type="Texture2D" uid="uid://bm6tv647tfba1" path="res://About/jazel.png" id="4_5tp7k"]
+[ext_resource type="Texture2D" uid="uid://cnwu2e7plqa3v" path="res://About/SeanTheSheep.png" id="5_ik7te"]
+[ext_resource type="Texture2D" uid="uid://c7wwf5kkj51wr" path="res://About/sodabones.png" id="6_7n2fl"]
+
+[node name="About" type="Node2D" unique_id=2002886257]
+script = ExtResource("1_x5r8a")
+
+[node name="button_manager" type="Control" parent="." unique_id=373174590]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Back" type="Button" parent="button_manager" unique_id=1190683010]
+layout_mode = 0
+offset_left = 1021.0
+offset_right = 1289.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="Label" type="Label" parent="." unique_id=1679834861]
+offset_left = 447.0
+offset_top = 11.0
+offset_right = 797.0
+offset_bottom = 135.0
+theme_override_font_sizes/font_size = 90
+text = "SYNT/\\X"
+
+[node name="Label2" type="Label" parent="." unique_id=267848560]
+offset_left = 140.0
+offset_top = 326.0
+offset_right = 584.0
+offset_bottom = 436.0
+scale = Vector2(0.826, 0.826)
+theme_override_font_sizes/font_size = 60
+text = "Azzy Dela Cruz"
+
+[node name="Label3" type="Label" parent="." unique_id=1926976425]
+offset_left = 753.0
+offset_top = 326.0
+offset_right = 1196.0
+offset_bottom = 436.0
+scale = Vector2(0.826, 0.826)
+theme_override_font_sizes/font_size = 60
+text = "Jianne Abinales"
+
+[node name="Label4" type="Label" parent="." unique_id=699605950]
+offset_left = 83.0
+offset_top = 599.0
+offset_right = 666.0
+offset_bottom = 709.0
+scale = Vector2(0.826, 0.826)
+theme_override_font_sizes/font_size = 60
+text = "Francis Mangaliman"
+
+[node name="Label5" type="Label" parent="." unique_id=195154240]
+offset_left = 702.0
+offset_top = 596.0
+offset_right = 1267.0
+offset_bottom = 706.0
+scale = Vector2(0.826, 0.826)
+theme_override_font_sizes/font_size = 60
+text = "Sean Andrei Lacson"
+
+[node name="BgFrontyardRoughcolor" type="Sprite2D" parent="." unique_id=978154744]
+show_behind_parent = true
+visibility_layer = 512
+position = Vector2(132, 880)
+texture = ExtResource("3_sx25x")
+
+[node name="Finn" type="Sprite2D" parent="." unique_id=760222995]
+position = Vector2(316, 522)
+scale = Vector2(0.826, 0.826)
+texture = ExtResource("3_x5r8a")
+
+[node name="Jazel" type="Sprite2D" parent="." unique_id=1417216361]
+position = Vector2(935, 248.00009)
+scale = Vector2(0.7733877, 0.7733876)
+texture = ExtResource("4_5tp7k")
+
+[node name="SeanTheSheep" type="Sprite2D" parent="." unique_id=1974733947]
+position = Vector2(933, 530)
+scale = Vector2(0.826, 0.826)
+texture = ExtResource("5_ik7te")
+
+[node name="Sodabones" type="Sprite2D" parent="." unique_id=687233923]
+position = Vector2(320, 254.00009)
+scale = Vector2(0.82823133, 0.82823133)
+texture = ExtResource("6_7n2fl")
+
+[connection signal="pressed" from="button_manager/Back" to="." method="_on_back_pressed"]

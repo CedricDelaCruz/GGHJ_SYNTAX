@@ -2,15 +2,99 @@
 
 [ext_resource type="Script" uid="uid://dga7am8o4wsuc" path="res://house.gd" id="1_6syyc"]
 [ext_resource type="Script" uid="uid://ci5dtjwc746dx" path="res://player.gd" id="2_0l6dv"]
+[ext_resource type="Script" uid="uid://ck1d8uoo4po5s" path="res://windowpane.gd" id="3_4wfvm"]
+[ext_resource type="Texture2D" uid="uid://dm7i0611w8vkl" path="res://InsideSprites/window2.png" id="3_fl8vv"]
 [ext_resource type="Texture2D" uid="uid://bt6ly0bxv8hcq" path="res://Player/Sprites/idle_down.png" id="3_k3v7f"]
 [ext_resource type="Script" uid="uid://dv2eyfarayru5" path="res://area_2d.gd" id="3_o1325"]
 [ext_resource type="Texture2D" uid="uid://ca6b30q352ykc" path="res://Player/Sprites/idle_side_1.png" id="4_q8yd6"]
+[ext_resource type="Resource" uid="uid://kkhu0uf1eq3n" path="res://windowpane.dialogue" id="5_c55dp"]
 [ext_resource type="Texture2D" uid="uid://dqfdo2uk7kveu" path="res://Player/Sprites/idle_side_2.png" id="5_fl8vv"]
-[ext_resource type="Texture2D" uid="uid://c7ix5h30hrhhw" path="res://bg_inside.png" id="6_10qhy"]
+[ext_resource type="Script" uid="uid://du5y3v7qa1k2t" path="res://picture.gd" id="5_shbcp"]
+[ext_resource type="Texture2D" uid="uid://dr86amqncbx6w" path="res://InsideSprites/picture2.png" id="5_umavc"]
+[ext_resource type="PackedScene" uid="uid://n56pdmybdshr" path="res://dialogue_balloon/balloon.tscn" id="6_11uyb"]
 [ext_resource type="Texture2D" uid="uid://on1owcgcweh1" path="res://Player/Sprites/idle_side_3.png" id="6_umavc"]
+[ext_resource type="Resource" uid="uid://b6drq1ijfyuyl" path="res://picture.dialogue" id="7_cgaom"]
 [ext_resource type="Texture2D" uid="uid://cye47u1onv2go" path="res://Player/Sprites/idle_side_4.png" id="7_shbcp"]
+[ext_resource type="Texture2D" uid="uid://bpgue1j7hxl12" path="res://InsideSprites/picture1.png" id="8_umavc"]
+[ext_resource type="Texture2D" uid="uid://citqjskolptb0" path="res://InsideSprites/window1.png" id="9_shbcp"]
 [ext_resource type="Script" uid="uid://cxtilc5glnywe" path="res://back_door.gd" id="10_q8yd6"]
-[ext_resource type="Texture2D" uid="uid://tgow0mhhlk22" path="res://Player/Sprites/bg_inside_roughcolor.png" id="11_k3v7f"]
+[ext_resource type="Texture2D" uid="uid://btihighdos5sv" path="res://InsideSprites/bg_inside_final.png" id="14_qj8ql"]
+
+[sub_resource type="Animation" id="Animation_umavc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_shbcp")]
+}
+
+[sub_resource type="Animation" id="Animation_shbcp"]
+resource_name = "sway"
+length = 0.46666667
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.46666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("9_shbcp"), ExtResource("3_fl8vv")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qj8ql"]
+_data = {
+&"RESET": SubResource("Animation_umavc"),
+&"sway": SubResource("Animation_shbcp")
+}
+
+[sub_resource type="Animation" id="Animation_qj8ql"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_umavc")]
+}
+
+[sub_resource type="Animation" id="Animation_11uyb"]
+resource_name = "look"
+length = 2.3333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.0666666, 2.3333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("8_umavc"), ExtResource("5_umavc"), ExtResource("8_umavc")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cgaom"]
+_data = {
+&"RESET": SubResource("Animation_qj8ql"),
+&"look": SubResource("Animation_11uyb")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0l6dv"]
 radius = 16.124516
@@ -71,6 +155,38 @@ radius = 174.4133
 [node name="house" type="Node2D" unique_id=158852164]
 script = ExtResource("1_6syyc")
 
+[node name="windowpane" type="Sprite2D" parent="." unique_id=1348726716]
+position = Vector2(699, 363.99997)
+scale = Vector2(0.42773435, 0.42773435)
+texture = ExtResource("9_shbcp")
+
+[node name="Area2D" type="Area2D" parent="windowpane" unique_id=2127609559]
+script = ExtResource("3_4wfvm")
+balloon_scene = ExtResource("6_11uyb")
+dialogue_resource = ExtResource("5_c55dp")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="windowpane/Area2D" unique_id=884215030]
+polygon = PackedVector2Array(829.95435, -836.968, 1402.7397, -706.04565, 1386.3745, 991.2695, 797.2239, 528.3654)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="windowpane" unique_id=1806015435]
+libraries/ = SubResource("AnimationLibrary_qj8ql")
+
+[node name="picture" type="Sprite2D" parent="." unique_id=541938477]
+position = Vector2(647.702, 281)
+scale = Vector2(0.38378906, 0.38378906)
+texture = ExtResource("8_umavc")
+
+[node name="Area2D" type="Area2D" parent="picture" unique_id=1178976834]
+script = ExtResource("5_shbcp")
+balloon_scene = ExtResource("6_11uyb")
+dialogue_resource = ExtResource("7_cgaom")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="picture/Area2D" unique_id=1591291085]
+polygon = PackedVector2Array(-356.19055, -659.2163, -330.13452, 28.66156, 188.3794, 26.05597, 206.61865, -739.9898, -361.40173, -753.0178)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="picture" unique_id=535036896]
+libraries/ = SubResource("AnimationLibrary_cgaom")
+
 [node name="Player" type="CharacterBody2D" parent="." unique_id=855349981]
 position = Vector2(6.1035156e-05, 3.0517578e-05)
 scale = Vector2(0.99999994, 0.99999994)
@@ -100,7 +216,7 @@ position_smoothing_enabled = true
 script = ExtResource("3_o1325")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="window/Area2D" unique_id=846130359]
-position = Vector2(1553, 187)
+position = Vector2(1623, 234)
 shape = SubResource("CircleShape2D_10qhy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="window" unique_id=1915273583]
@@ -128,18 +244,33 @@ position = Vector2(497, 132)
 rotation = 1.8325958
 polygon = PackedVector2Array(163.73329, 259.46368, 231.65767, 230.91066, 509.80707, 125.3224, 500.0871, 23.363983, 438.75696, -89.61217, 283.89923, -37.76539, 49.38733, 37.49524, -65.41914, 76.53975, -25.547394, 182.84236, -7.0461273, 302.1181)
 
-[node name="BgInside" type="Sprite2D" parent="." unique_id=1375185924]
+[node name="BgInsideFinal" type="Sprite2D" parent="." unique_id=1218175382]
+show_behind_parent = true
+position = Vector2(644, 331)
+scale = Vector2(0.46630856, 0.4663086)
+texture = ExtResource("14_qj8ql")
+
+[node name="jumpscare" type="CanvasLayer" parent="." unique_id=1847495992]
 visible = false
-show_behind_parent = true
-position = Vector2(653, 273)
-scale = Vector2(0.36034837, 0.3603484)
-texture = ExtResource("6_10qhy")
 
-[node name="BgInsideRoughcolor" type="Sprite2D" parent="." unique_id=191183794]
-show_behind_parent = true
-position = Vector2(644, 312)
-scale = Vector2(0.363508, 0.36350805)
-texture = ExtResource("11_k3v7f")
+[node name="ColorRect" type="ColorRect" parent="jumpscare" unique_id=734028527]
+offset_left = -21.0
+offset_top = -46.0
+offset_right = 1298.0
+offset_bottom = 817.0
+color = Color(0, 0, 0, 1)
 
+[node name="Label" type="Label" parent="jumpscare" unique_id=702289285]
+offset_left = 406.0
+offset_top = 281.0
+offset_right = 1258.0
+offset_bottom = 609.0
+theme_override_font_sizes/font_size = 100
+text = "jumpscare"
+
+[connection signal="mouse_entered" from="windowpane/Area2D" to="." method="change_cursor_hand"]
+[connection signal="mouse_exited" from="windowpane/Area2D" to="." method="change_cursor_back"]
+[connection signal="mouse_entered" from="picture/Area2D" to="." method="change_cursor_hand"]
+[connection signal="mouse_exited" from="picture/Area2D" to="." method="change_cursor_back"]
 [connection signal="mouse_entered" from="BackDoor" to="." method="change_cursor_hand"]
 [connection signal="mouse_exited" from="BackDoor" to="." method="change_cursor_back"]

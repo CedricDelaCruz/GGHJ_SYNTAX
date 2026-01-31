@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cxss4docral7n"]
 
 [ext_resource type="Script" uid="uid://dtmb06uu417xp" path="res://cutscene.gd" id="1_ye7fo"]
+[ext_resource type="Resource" uid="uid://dtnesquym40j5" path="res://phone.dialogue" id="2_ix241"]
 
 [sub_resource type="GDScript" id="GDScript_ye7fo"]
 script/source = "extends CanvasLayer
@@ -44,6 +45,7 @@ func _on_fade_in_complete():
 
 [node name="cutscene" type="Node2D" unique_id=1714282983]
 script = ExtResource("1_ye7fo")
+phone_dialogue = ExtResource("2_ix241")
 
 [node name="Transition" type="CanvasLayer" parent="." unique_id=1432361315]
 script = SubResource("GDScript_ye7fo")

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SyntaxGame"
-run/main_scene="uid://cxss4docral7n"
+run/main_scene="uid://7x6m0ydtsx8f"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -83,7 +83,7 @@ click={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://phone.dialogue")
+locale/translations_pot_files=PackedStringArray("res://phone.dialogue", "res://door.dialogue", "res://troll.dialogue", "res://picture.dialogue", "res://windowpane.dialogue")
 
 [physics]
 

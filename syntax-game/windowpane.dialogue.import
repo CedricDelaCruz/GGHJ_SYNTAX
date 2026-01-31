@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://kkhu0uf1eq3n"
+path="res://.godot/imported/windowpane.dialogue-9d379edd4d16869d42309cc139783646.tres"
+
+[deps]
+
+source_file="res://windowpane.dialogue"
+dest_files=["res://.godot/imported/windowpane.dialogue-9d379edd4d16869d42309cc139783646.tres"]
+
+[params]
+
+defaults=true

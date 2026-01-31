@@ -37,21 +37,22 @@ var locals: Dictionary = {}
 var _locale: String = TranslationServer.get_locale()
 
 ## The current line
+var _dialogue_line: DialogueLine
+
 var dialogue_line: DialogueLine:
 	set(value):
+		_dialogue_line = value
 		if value:
-			dialogue_line = value
 			apply_dialogue_line()
 		else:
-			# The dialogue has finished
 			dialogue_finished.emit()
-			
 			if owner == null:
 				queue_free()
 			else:
 				hide()
 	get:
-		return dialogue_line
+		return _dialogue_line
+
 
 ## A cooldown timer for delaying the balloon hide when encountering a mutation.
 var mutation_cooldown: Timer = Timer.new()

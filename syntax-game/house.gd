@@ -1,11 +1,13 @@
 extends Node2D
 
 @onready var textbox = $window/CanvasLayer/Panel
+@onready var animation_player: AnimationPlayer = $windowpane/AnimationPlayer
 
 var hand_cursor = preload("res://Player/Sprites/hand.png")
 
 func _ready():
-	pass
+	animation_player.play("sway")
+	animation_player.play("look")
 
 func _process(delta):
 	pass
@@ -21,3 +23,6 @@ func _unhandled_input(event):
 	if textbox.visible and event is InputEventMouseButton and event.pressed:
 		await get_tree().process_frame
 		textbox.visible = false
+		
+func play_animation() -> void:
+	animation_player.play("look")
