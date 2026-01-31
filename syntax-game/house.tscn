@@ -138,7 +138,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_10qhy"]
-radius = 14.0
+radius = 174.4133
 
 [node name="house" type="Node2D" unique_id=158852164]
 script = ExtResource("1_6syyc")
@@ -158,8 +158,8 @@ libraries/ = SubResource("AnimationLibrary_6syyc")
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1421816457]
 offset = Vector2(0, -88.45)
-limit_left = 2
-limit_right = 313
+limit_left = -41
+limit_right = 429
 position_smoothing_enabled = true
 
 [node name="window" type="Sprite2D" parent="." unique_id=1766980080]
@@ -168,7 +168,7 @@ position_smoothing_enabled = true
 script = ExtResource("3_o1325")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="window/Area2D" unique_id=846130359]
-position = Vector2(337, -204)
+position = Vector2(636, -165)
 shape = SubResource("CircleShape2D_10qhy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="window" unique_id=1915273583]
@@ -192,13 +192,14 @@ text = "A window."
 script = ExtResource("4_vy7fe")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DoorStair" unique_id=360887227]
-position = Vector2(45, -228)
+position = Vector2(-90, -224.00002)
+rotation = 1.8325958
 polygon = PackedVector2Array(147, 208, 139, 245, 208, 242, 198, 202, 195, 179, 79, 115, 76, 75, 41, 79, 48, 146, 78, 147)
 
 [node name="BgInside" type="Sprite2D" parent="." unique_id=1375185924]
 show_behind_parent = true
-position = Vector2(219, -117)
-scale = Vector2(0.1496976, 0.1496976)
+position = Vector2(195.84915, -124.34375)
+scale = Vector2(0.13681956, 0.13681956)
 texture = ExtResource("6_10qhy")
 
 [connection signal="mouse_entered" from="DoorStair" to="." method="change_cursor_hand"]
