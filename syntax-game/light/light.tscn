@@ -1,16 +1,27 @@
 [gd_scene format=3 uid="uid://t4mb0uoyi0f5"]
 
-[ext_resource type="Texture2D" uid="uid://cu0bh2xf06gvs" path="res://icon.svg" id="1_pb6c2"]
+[ext_resource type="Script" uid="uid://roylrpae6xyc" path="res://light/light_flicker.gd" id="1_pb6c2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pb6c2"]
 radius = 50.0
 height = 166.0
 
+[sub_resource type="Gradient" id="Gradient_pb6c2"]
+offsets = PackedFloat32Array(0, 0.36127168, 0.61560696, 0.8410405, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.96199995, 1, 0.43, 1, 0.99, 0.65109, 0.20789999, 1, 0.37664795, 0.0007856292, 0.000979148, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eh8bm"]
+gradient = SubResource("Gradient_pb6c2")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [node name="Light" type="Node2D" unique_id=1742323405]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=158994343]
 position = Vector2(2, -49)
-texture = ExtResource("1_pb6c2")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1569899437]
 collision_mask = 0
@@ -22,3 +33,8 @@ shape = SubResource("CapsuleShape2D_pb6c2")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=669174151]
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1828591264]
+position = Vector2(0, -120)
+scale = Vector2(2.5097656, 2.7656252)
+energy = 0.95
+texture = SubResource("GradientTexture2D_eh8bm")
+script = ExtResource("1_pb6c2")
