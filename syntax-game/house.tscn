@@ -158,8 +158,8 @@ libraries/ = SubResource("AnimationLibrary_6syyc")
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1421816457]
 offset = Vector2(0, -88.45)
-limit_left = -41
-limit_right = 429
+limit_left = -77
+limit_right = 303
 position_smoothing_enabled = true
 
 [node name="window" type="Sprite2D" parent="." unique_id=1766980080]
@@ -198,8 +198,8 @@ polygon = PackedVector2Array(147, 208, 139, 245, 208, 242, 198, 202, 195, 179, 7
 
 [node name="BgInside" type="Sprite2D" parent="." unique_id=1375185924]
 show_behind_parent = true
-position = Vector2(195.84915, -124.34375)
-scale = Vector2(0.13681956, 0.13681956)
+position = Vector2(114, -88)
+scale = Vector2(0.10832912, 0.108329125)
 texture = ExtResource("6_10qhy")
 
 [connection signal="mouse_entered" from="DoorStair" to="." method="change_cursor_hand"]
