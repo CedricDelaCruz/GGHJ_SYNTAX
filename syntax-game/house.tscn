@@ -1,141 +1,69 @@
 [gd_scene format=3 uid="uid://capvrjjc81al4"]
 
 [ext_resource type="Script" uid="uid://dga7am8o4wsuc" path="res://house.gd" id="1_6syyc"]
-[ext_resource type="Texture2D" uid="uid://c17mxelbhhd6u" path="res://Player/Sprites/ExamplePlayerSprite.png" id="1_hfkix"]
-[ext_resource type="Script" uid="uid://dyiem22q7xwbr" path="res://Player/Scripts/player.gd" id="1_metfq"]
+[ext_resource type="Script" uid="uid://ci5dtjwc746dx" path="res://player.gd" id="2_0l6dv"]
+[ext_resource type="Texture2D" uid="uid://bt6ly0bxv8hcq" path="res://Player/Sprites/idle_down.png" id="3_k3v7f"]
 [ext_resource type="Script" uid="uid://dv2eyfarayru5" path="res://area_2d.gd" id="3_o1325"]
-[ext_resource type="Script" uid="uid://cwnuo1v6j6hm6" path="res://door_stair.gd" id="4_vy7fe"]
+[ext_resource type="Texture2D" uid="uid://ca6b30q352ykc" path="res://Player/Sprites/idle_side_1.png" id="4_q8yd6"]
+[ext_resource type="Texture2D" uid="uid://dqfdo2uk7kveu" path="res://Player/Sprites/idle_side_2.png" id="5_fl8vv"]
 [ext_resource type="Texture2D" uid="uid://c7ix5h30hrhhw" path="res://bg_inside.png" id="6_10qhy"]
+[ext_resource type="Texture2D" uid="uid://on1owcgcweh1" path="res://Player/Sprites/idle_side_3.png" id="6_umavc"]
+[ext_resource type="Texture2D" uid="uid://cye47u1onv2go" path="res://Player/Sprites/idle_side_4.png" id="7_shbcp"]
+[ext_resource type="Script" uid="uid://cxtilc5glnywe" path="res://back_door.gd" id="10_q8yd6"]
+[ext_resource type="Texture2D" uid="uid://tgow0mhhlk22" path="res://Player/Sprites/bg_inside_roughcolor.png" id="11_k3v7f"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_metfq"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_0l6dv"]
+radius = 16.124516
 
-[sub_resource type="Animation" id="Animation_4ntmi"]
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_btcbx"]
-resource_name = "idle_down"
-length = 0.4
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-
-[sub_resource type="Animation" id="Animation_gwnis"]
-resource_name = "idle_side"
-length = 0.4
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [14, 15, 16]
-}
-
-[sub_resource type="Animation" id="Animation_k53q1"]
-resource_name = "idle_up"
-length = 0.4
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [7, 8, 9]
-}
-
-[sub_resource type="Animation" id="Animation_fhl08"]
-resource_name = "walk_down"
-length = 0.3
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [3, 4, 5, 6]
-}
-
-[sub_resource type="Animation" id="Animation_vtle1"]
-resource_name = "walk_side"
-length = 0.3
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [17, 18, 19, 20]
-}
-
-[sub_resource type="Animation" id="Animation_od3ui"]
-resource_name = "walk_up"
-length = 0.3
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [10, 11, 12, 13]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6syyc"]
-_data = {
-&"RESET": SubResource("Animation_4ntmi"),
-&"idle_down": SubResource("Animation_btcbx"),
-&"idle_side": SubResource("Animation_gwnis"),
-&"idle_up": SubResource("Animation_k53q1"),
-&"walk_down": SubResource("Animation_fhl08"),
-&"walk_side": SubResource("Animation_vtle1"),
-&"walk_up": SubResource("Animation_od3ui")
-}
+[sub_resource type="SpriteFrames" id="SpriteFrames_k3v7f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_k3v7f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_k3v7f")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_fl8vv")
+}],
+"loop": true,
+"name": &"idle_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_q8yd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fl8vv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_umavc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_shbcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_umavc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fl8vv")
+}],
+"loop": true,
+"name": &"walk_side",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_10qhy"]
 radius = 174.4133
@@ -143,23 +71,27 @@ radius = 174.4133
 [node name="house" type="Node2D" unique_id=158852164]
 script = ExtResource("1_6syyc")
 
-[node name="player" type="CharacterBody2D" parent="." unique_id=751251281]
-script = ExtResource("1_metfq")
+[node name="Player" type="CharacterBody2D" parent="." unique_id=855349981]
+position = Vector2(6.1035156e-05, 3.0517578e-05)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("2_0l6dv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=558495765]
-shape = SubResource("CircleShape2D_metfq")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=2039165759]
+position = Vector2(163.99995, 670)
+shape = SubResource("CircleShape2D_0l6dv")
 
-[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1730668486]
-texture = ExtResource("1_hfkix")
-hframes = 21
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1035870961]
+position = Vector2(274.99997, 568.00006)
+scale = Vector2(0.41507357, 0.4150736)
+sprite_frames = SubResource("SpriteFrames_k3v7f")
+animation = &"idle_side"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="player" unique_id=103553160]
-libraries/ = SubResource("AnimationLibrary_6syyc")
-
-[node name="Camera2D" type="Camera2D" parent="player" unique_id=1421816457]
-offset = Vector2(0, -88.45)
-limit_left = -77
-limit_right = 303
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1107315093]
+offset = Vector2(0, 361.465)
+limit_left = 15
+limit_top = -9999065
+limit_right = 1279
+limit_bottom = 10000935
 position_smoothing_enabled = true
 
 [node name="window" type="Sprite2D" parent="." unique_id=1766980080]
@@ -168,7 +100,7 @@ position_smoothing_enabled = true
 script = ExtResource("3_o1325")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="window/Area2D" unique_id=846130359]
-position = Vector2(636, -165)
+position = Vector2(1553, 187)
 shape = SubResource("CircleShape2D_10qhy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="window" unique_id=1915273583]
@@ -188,19 +120,26 @@ offset_right = 95.0
 offset_bottom = 33.0
 text = "A window."
 
-[node name="DoorStair" type="Area2D" parent="." unique_id=366831979]
-script = ExtResource("4_vy7fe")
+[node name="BackDoor" type="Area2D" parent="." unique_id=19517196]
+script = ExtResource("10_q8yd6")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DoorStair" unique_id=360887227]
-position = Vector2(-90, -224.00002)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackDoor" unique_id=1951219369]
+position = Vector2(497, 132)
 rotation = 1.8325958
-polygon = PackedVector2Array(147, 208, 139, 245, 208, 242, 198, 202, 195, 179, 79, 115, 76, 75, 41, 79, 48, 146, 78, 147)
+polygon = PackedVector2Array(163.73329, 259.46368, 231.65767, 230.91066, 509.80707, 125.3224, 500.0871, 23.363983, 438.75696, -89.61217, 283.89923, -37.76539, 49.38733, 37.49524, -65.41914, 76.53975, -25.547394, 182.84236, -7.0461273, 302.1181)
 
 [node name="BgInside" type="Sprite2D" parent="." unique_id=1375185924]
+visible = false
 show_behind_parent = true
-position = Vector2(114, -88)
-scale = Vector2(0.10832912, 0.108329125)
+position = Vector2(653, 273)
+scale = Vector2(0.36034837, 0.3603484)
 texture = ExtResource("6_10qhy")
 
-[connection signal="mouse_entered" from="DoorStair" to="." method="change_cursor_hand"]
-[connection signal="mouse_exited" from="DoorStair" to="." method="change_cursor_back"]
+[node name="BgInsideRoughcolor" type="Sprite2D" parent="." unique_id=191183794]
+show_behind_parent = true
+position = Vector2(644, 312)
+scale = Vector2(0.363508, 0.36350805)
+texture = ExtResource("11_k3v7f")
+
+[connection signal="mouse_entered" from="BackDoor" to="." method="change_cursor_hand"]
+[connection signal="mouse_exited" from="BackDoor" to="." method="change_cursor_back"]

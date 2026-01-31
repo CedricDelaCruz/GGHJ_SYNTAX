@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dtnesquym40j5"
+path="res://.godot/imported/phone.dialogue-ec5f523264aff1c634533f94f2f287ed.tres"
+
+[deps]
+
+source_file="res://phone.dialogue"
+dest_files=["res://.godot/imported/phone.dialogue-ec5f523264aff1c634533f94f2f287ed.tres"]
+
+[params]
+
+defaults=true

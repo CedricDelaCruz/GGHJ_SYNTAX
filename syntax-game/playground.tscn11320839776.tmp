@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://brlehvxjejf6m"]
+
+[ext_resource type="Script" uid="uid://4tltqnch4w1y" path="res://playground.gd" id="1_m8u5f"]
+[ext_resource type="Script" uid="uid://ci5dtjwc746dx" path="res://player.gd" id="2_h1jm5"]
+[ext_resource type="Texture2D" uid="uid://b6gsm8sc6m82x" path="res://Player/Sprites/bg_frontyard_lineart.png" id="3_is3ju"]
+[ext_resource type="Texture2D" uid="uid://bt6ly0bxv8hcq" path="res://Player/Sprites/idle_down.png" id="3_pio1y"]
+[ext_resource type="Texture2D" uid="uid://k4i1u60t6hbk" path="res://Player/Sprites/fire1.png" id="3_yjl7g"]
+[ext_resource type="Texture2D" uid="uid://cr7phg8tq8rmu" path="res://Player/Sprites/fire2.png" id="4_f7pug"]
+[ext_resource type="Script" uid="uid://dv2eyfarayru5" path="res://area_2d.gd" id="4_is3ju"]
+[ext_resource type="Texture2D" uid="uid://ca6b30q352ykc" path="res://Player/Sprites/idle_side_1.png" id="4_te8jg"]
+[ext_resource type="Texture2D" uid="uid://bhn0yhlxo5a7o" path="res://Player/Sprites/fire3.png" id="5_jgc46"]
+[ext_resource type="Script" uid="uid://cwnuo1v6j6hm6" path="res://door_stair.gd" id="5_o00ia"]
+[ext_resource type="Texture2D" uid="uid://dqfdo2uk7kveu" path="res://Player/Sprites/idle_side_2.png" id="5_yjl7g"]
+[ext_resource type="Texture2D" uid="uid://on1owcgcweh1" path="res://Player/Sprites/idle_side_3.png" id="6_f7pug"]
+[ext_resource type="Texture2D" uid="uid://cye47u1onv2go" path="res://Player/Sprites/idle_side_4.png" id="7_jgc46"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dk0co"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_yjl7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f7pug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jgc46")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_yjl7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f7pug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jgc46")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dk0co"]
+radius = 28.28426
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pactg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pio1y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pio1y")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_yjl7g")
+}],
+"loop": true,
+"name": &"idle_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_te8jg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yjl7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_f7pug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jgc46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_f7pug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yjl7g")
+}],
+"loop": true,
+"name": &"walk_side",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_is3ju"]
+radius = 43.737854
+
+[node name="Playground" type="Node2D" unique_id=51856482]
+script = ExtResource("1_m8u5f")
+
+[node name="fire" type="AnimatedSprite2D" parent="." unique_id=44848400]
+position = Vector2(1532.0005, 461.99997)
+scale = Vector2(0.16601564, 0.16601564)
+sprite_frames = SubResource("SpriteFrames_dk0co")
+animation = &"fire"
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=198747689]
+position = Vector2(6.1035156e-05, 3.0517578e-05)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("2_h1jm5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1402401896]
+position = Vector2(181.99994, 666)
+shape = SubResource("CircleShape2D_dk0co")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1253901932]
+position = Vector2(192.99995, 571)
+scale = Vector2(0.16911764, 0.16911766)
+sprite_frames = SubResource("SpriteFrames_pactg")
+animation = &"idle_side"
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1277674600]
+offset = Vector2(0, 361.465)
+limit_left = -3
+limit_top = -9999065
+limit_right = 1956
+limit_bottom = 10000935
+position_smoothing_enabled = true
+
+[node name="BgFrontyard" type="Sprite2D" parent="." unique_id=1441334918]
+z_index = -1
+y_sort_enabled = true
+position = Vector2(1136.0369, 313.25394)
+scale = Vector2(0.3260112, 0.3260112)
+texture = ExtResource("3_is3ju")
+
+[node name="window" type="Sprite2D" parent="." unique_id=346500805]
+
+[node name="Area2D" type="Area2D" parent="window" unique_id=1971569762]
+script = ExtResource("4_is3ju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="window/Area2D" unique_id=1294095781]
+position = Vector2(783, 119)
+shape = SubResource("CircleShape2D_is3ju")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="window" unique_id=486556258]
+
+[node name="Panel" type="Panel" parent="window/CanvasLayer" unique_id=1702004700]
+visible = false
+offset_left = 22.0
+offset_top = 229.0
+offset_right = 406.0
+offset_bottom = 269.0
+
+[node name="Label" type="Label" parent="window/CanvasLayer/Panel" unique_id=405213798]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 10.0
+offset_right = 95.0
+offset_bottom = 33.0
+text = "A window."
+
+[node name="DoorStair" type="Area2D" parent="." unique_id=562631028]
+script = ExtResource("5_o00ia")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DoorStair" unique_id=2137750076]
+position = Vector2(88, -9)
+scale = Vector2(2.6383703, 2.63837)
+polygon = PackedVector2Array(147, 208, 139, 245, 208, 242, 198, 202, 195, 179, 79, 115, 76, 75, 41, 79, 48, 146, 78, 147)
+
+[connection signal="mouse_entered" from="window/Area2D" to="." method="change_cursor_hand"]
+[connection signal="mouse_exited" from="window/Area2D" to="." method="change_cursor_back"]
+[connection signal="mouse_entered" from="DoorStair" to="." method="change_cursor_hand"]
+[connection signal="mouse_exited" from="DoorStair" to="." method="change_cursor_back"]

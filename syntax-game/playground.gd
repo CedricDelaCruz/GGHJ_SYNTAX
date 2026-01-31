@@ -1,13 +1,16 @@
 extends Node2D
 
 @onready var textbox = $window/CanvasLayer/Panel
+@onready var fire: AnimatedSprite2D = $fire
 
 var hand_cursor = preload("res://Player/Sprites/hand.png")
 
 func _ready():
+	
 	pass
 
 func _process(delta):
+	fire.play("fire")
 	pass
 
 func change_cursor_hand():

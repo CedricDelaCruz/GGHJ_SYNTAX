@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cxss4docral7n"]
+
+[ext_resource type="Script" uid="uid://dtmb06uu417xp" path="res://cutscene.gd" id="1_ye7fo"]
+
+[sub_resource type="GDScript" id="GDScript_ye7fo"]
+script/source = "extends CanvasLayer
+
+signal on_transition_finished
+
+@onready var color_rect: ColorRect = $ColorRect
+
+# Default fade durations (seconds)
+var fade_out_duration: float = 1.0
+var fade_in_duration: float = 1.0
+
+func _ready():
+	color_rect.visible = false
+	color_rect.modulate.a = 0.0  # start fully transparent
+
+# Main function: fade out → change scene → fade in
+func fade_to_scene(target_scene: String, fade_out: float = 1.0, fade_in: float = 1.0):
+	fade_out_duration = fade_out
+	fade_in_duration = fade_in
+	
+	color_rect.visible = true
+	# Fade out using SceneTreeTween
+	var tween = get_tree().create_tween()
+	tween.tween_property(color_rect, \"modulate:a\", 1.0, fade_out_duration)
+	tween.tween_callback(Callable(self, \"_change_scene\").bind(target_scene))
+
+func _change_scene(target_scene: String):
+	# Change the scene
+	get_tree().change_scene_to_file(target_scene)
+	
+	# Fade back in
+	var tween = get_tree().create_tween()
+	tween.tween_property(color_rect, \"modulate:a\", 0.0, fade_in_duration)
+	tween.tween_callback(Callable(self, \"_on_fade_in_complete\"))
+
+func _on_fade_in_complete():
+	color_rect.visible = false
+	emit_signal(\"on_transition_finished\")
+"
+
+[node name="cutscene" type="Node2D" unique_id=1714282983]
+script = ExtResource("1_ye7fo")
+
+[node name="Transition" type="CanvasLayer" parent="." unique_id=1432361315]
+script = SubResource("GDScript_ye7fo")
+
+[node name="ColorRect" type="ColorRect" parent="Transition" unique_id=1261724296]
+modulate = Color(1, 1, 1, 0)
+offset_left = -5.0
+offset_top = -3.0
+offset_right = 1300.0
+offset_bottom = 747.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1656681817]
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer2" unique_id=1401132417]
+offset_left = -5.0
+offset_top = -3.0
+offset_right = 1300.0
+offset_bottom = 747.0
+color = Color(0, 0, 0, 1)

@@ -8,7 +8,7 @@ var can_move : = true
 
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var textbox = $"../window/CanvasLayer/Panel"
 
 
@@ -20,7 +20,7 @@ func _ready():
 func _process( delta ):
 	 
 	if textbox.visible:
-		animation_player.play("idle_side")
+		sprite.play("idle_side")
 	else:
 		direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	
@@ -52,7 +52,7 @@ func SetDirection() -> bool:
 		return false
 	
 	cardinal_direction = new_dir
-	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
+	sprite.flip_h = cardinal_direction == Vector2.LEFT
 	return true
 
 
@@ -69,7 +69,7 @@ func UpdateAnimation() -> void:
 	if textbox.visible:
 		animation_player.play("idle_side")
 	else:
-		animation_player.play( state + "_" + AnimDirection() )
+		sprite.play( state + "_" + AnimDirection() )
 	pass
 
 func AnimDirection() -> String:
