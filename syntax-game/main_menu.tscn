@@ -16,6 +16,15 @@ theme_override_font_sizes/font_size = 80
 text = "Anting
 Anting"
 
+[node name="Label2" type="Label" parent="." unique_id=1197084347]
+offset_left = 7.0
+offset_top = 603.0
+offset_right = 347.0
+offset_bottom = 716.0
+theme_override_font_sizes/font_size = 40
+text = "Controls:
+WASD and Mouse"
+
 [node name="button_manager" type="Control" parent="." unique_id=334417711]
 layout_mode = 3
 anchors_preset = 0
