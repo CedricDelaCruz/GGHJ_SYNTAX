@@ -22,7 +22,7 @@ func open_dialogue():
 
 func _on_response_selected(response):
 	if response.text == "Yes":
-		get_tree().change_scene_to_file("res://house.tscn")
+		LevelTransition.change_scene_to_file("res://house.tscn")
 	# close the balloon for either response
 	balloon_instance.queue_free()
 	balloon_instance = null

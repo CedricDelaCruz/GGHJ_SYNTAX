@@ -2,20 +2,31 @@ extends CanvasLayer
 
 @onready var color_rect: ColorRect = $ColorRect
 
-var scene_to_load: String
-var color_rect_tween: Tween
+var tween: Tween
+var next_scene_path: String = ""
 
-func change_scene_to(scene_path: String) -> void:
-	if color_rect_tween:
-		color_rect_tween.kill()
-	
-	scene_to_load = scene_path
-	get_tree().paused = true
-	
-	color_rect_tween = create_tween().set_trans(Tween.TRANS_SINE)
-	color_rect_tween.tween_property(color_rect, "modulate:a", 1.0, 0.2).connect("finished", _load_new_scene)
-	color_rect_tween.chain().tween_property(color_rect, "modulate:a", 0.0, 0.4)
+func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	color_rect.visible = true
+	color_rect.modulate.a = 0.0
 
-func _load_new_scene() -> void:
-	get_tree().paused = false
-	get_tree().call_deferred("change_scene_to_file", scene_to_load)
+func change_scene_to_file(scene_path: String) -> void:
+	if tween:
+		tween.kill()
+
+	next_scene_path = scene_path
+
+	tween = create_tween()
+	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+	# Fade to black
+	tween.tween_property(color_rect, "modulate:a", 1.0, 0.8)
+	tween.finished.connect(_on_fade_out_finished)
+
+func _on_fade_out_finished():
+	get_tree().change_scene_to_file(next_scene_path)
+
+	# Fade back in
+	tween = create_tween()
+	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(color_rect, "modulate:a", 0.0, 0.8)

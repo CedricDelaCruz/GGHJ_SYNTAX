@@ -15,4 +15,4 @@ func _ready() -> void:
 
 
 func _on_dialogue_finished():
-	get_tree().change_scene_to_file("res://playground.tscn")
+	LevelTransition.change_scene_to_file("res://playground.tscn")
