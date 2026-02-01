@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dhbtdtnanwh81"
+path="res://.godot/imported/ruin.dialogue-67ede000b9b34dee151dd5ff2f64e8ea.tres"
+
+[deps]
+
+source_file="res://ruin.dialogue"
+dest_files=["res://.godot/imported/ruin.dialogue-67ede000b9b34dee151dd5ff2f64e8ea.tres"]
+
+[params]
+
+defaults=true

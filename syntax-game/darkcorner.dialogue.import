@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dbvpslng1vg3s"
+path="res://.godot/imported/darkcorner.dialogue-909e2e9213a29c892a132c910e455058.tres"
+
+[deps]
+
+source_file="res://darkcorner.dialogue"
+dest_files=["res://.godot/imported/darkcorner.dialogue-909e2e9213a29c892a132c910e455058.tres"]
+
+[params]
+
+defaults=true

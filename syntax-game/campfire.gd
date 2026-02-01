@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var player: Player = $"../Player"
+@onready var player: CharacterBody2D = $"../Player"
 
 @onready var troll: Sprite2D = $troll
 @export var balloon_scene: PackedScene

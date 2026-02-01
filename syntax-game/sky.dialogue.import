@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dyp1eq6gaypmk"
+path="res://.godot/imported/sky.dialogue-1db61761b70292eac7e21f6376c30d6e.tres"
+
+[deps]
+
+source_file="res://sky.dialogue"
+dest_files=["res://.godot/imported/sky.dialogue-1db61761b70292eac7e21f6376c30d6e.tres"]
+
+[params]
+
+defaults=true

@@ -20,10 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://p68wdn88ojlm" path="res://Player/Sprites/dabuddies.png" id="17_pactg"]
 [ext_resource type="Script" uid="uid://hikplvkfnj72" path="res://campfire.gd" id="17_ycdrs"]
 [ext_resource type="Script" uid="uid://dyul6utwe8lxy" path="res://darkcorner.gd" id="20_x6kx1"]
-[ext_resource type="Resource" uid="uid://dbvpslng1vg3s" path="res://darkcorner.dialogue" id="21_jufm4"]
-[ext_resource type="Resource" uid="uid://c5o0fg7d0qq6r" path="res://chair.dialogue" id="22_ymgag"]
-[ext_resource type="Resource" uid="uid://dyp1eq6gaypmk" path="res://sky.dialogue" id="23_u2qr3"]
-[ext_resource type="Resource" uid="uid://dhbtdtnanwh81" path="res://ruin.dialogue" id="24_vnugj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycdrs"]
 
@@ -129,12 +125,6 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_is3ju"]
 radius = 43.737854
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jufm4"]
-size = Vector2(356.1192, 409.26263)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2qr3"]
-size = Vector2(1893.4573, 652.45044)
 
 [node name="Playground" type="Node2D" unique_id=51856482]
 script = ExtResource("1_m8u5f")
@@ -260,44 +250,11 @@ position = Vector2(1560.0001, 447.00003)
 scale = Vector2(0.2920372, 0.29203725)
 script = ExtResource("20_x6kx1")
 balloon_scene = ExtResource("14_dk0co")
-dialogue_resource = ExtResource("21_jufm4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="darkcorner" unique_id=193325069]
 position = Vector2(-4567.9116, 147.2414)
 scale = Vector2(31.32, 31.32)
 shape = SubResource("CircleShape2D_ycdrs")
-
-[node name="chair" type="Area2D" parent="." unique_id=1119606670]
-position = Vector2(1560.0001, 447.00003)
-scale = Vector2(0.2920372, 0.29203725)
-script = ExtResource("20_x6kx1")
-balloon_scene = ExtResource("14_dk0co")
-dialogue_resource = ExtResource("22_ymgag")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="chair" unique_id=577705537]
-position = Vector2(-1825.1106, 290.2367)
-shape = SubResource("RectangleShape2D_jufm4")
-
-[node name="sky" type="Area2D" parent="." unique_id=355125307]
-position = Vector2(1560.0001, 447.00003)
-scale = Vector2(0.2920372, 0.29203725)
-script = ExtResource("20_x6kx1")
-balloon_scene = ExtResource("14_dk0co")
-dialogue_resource = ExtResource("23_u2qr3")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="sky" unique_id=1186673535]
-polygon = PackedVector2Array(-2099.0483, -996.44836, -2068.2305, -1016.9937, -1715.5356, -951.93353, -1927.8374, -691.69275, -1927.8374, -541.02704, -1599.112, -441.7246, -1547.7488, -222.57446, -1099.1758, -321.87683, -753.3291, -157.51428, -126.69678, -592.3903, 215.72559, -304.75574, 503.35986, -356.11914, 725.9346, -681.42004, -284.21094, -1263.5376, -301.33203, -1479.2635, -5280.1504, -1479.2635, -5352.0586, -1099.175, -3609.13, -1232.7196, -3259.8594, -1078.6296, -2609.2573, -1438.1729, -2239.4414, -1191.6289, -2123.0178, -1068.357)
-
-[node name="ruin" type="Area2D" parent="." unique_id=801543246]
-position = Vector2(1560.0001, 447.00003)
-scale = Vector2(0.2920372, 0.29203725)
-script = ExtResource("20_x6kx1")
-balloon_scene = ExtResource("14_dk0co")
-dialogue_resource = ExtResource("24_vnugj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ruin" unique_id=2070542358]
-position = Vector2(-2950.0361, -659.9505)
-shape = SubResource("RectangleShape2D_u2qr3")
 
 [connection signal="mouse_entered" from="campfire" to="." method="change_cursor_hand"]
 [connection signal="mouse_exited" from="campfire" to="." method="change_cursor_back"]
@@ -307,9 +264,3 @@ shape = SubResource("RectangleShape2D_u2qr3")
 [connection signal="mouse_exited" from="DoorStair" to="." method="change_cursor_back"]
 [connection signal="mouse_entered" from="darkcorner" to="." method="change_cursor_hand"]
 [connection signal="mouse_exited" from="darkcorner" to="." method="change_cursor_back"]
-[connection signal="mouse_entered" from="chair" to="." method="change_cursor_hand"]
-[connection signal="mouse_exited" from="chair" to="." method="change_cursor_back"]
-[connection signal="mouse_entered" from="sky" to="." method="change_cursor_hand"]
-[connection signal="mouse_exited" from="sky" to="." method="change_cursor_back"]
-[connection signal="mouse_entered" from="ruin" to="." method="change_cursor_hand"]
-[connection signal="mouse_exited" from="ruin" to="." method="change_cursor_back"]
